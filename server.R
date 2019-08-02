@@ -8,7 +8,7 @@ options(stringsAsFactors=FALSE)
 
 server <- function(input, output, session)
 {
-	v <- reactiveValues(file1=NULL, file2=NULL, measure=NULL, species=NULL, cfile1=NULL, cfile2=NULL)
+	v <- reactiveValues(file1=NULL, file2=NULL, measure=NULL, species=NULL, cfile1=NULL, cfile2=NULL, genelist=NULL)
 
 	#	----------------------------------------------
 	#	Paper 1
@@ -40,12 +40,27 @@ server <- function(input, output, session)
 	    	)
 	})
 
+	#	----------------------------------------------
+	#	min_freq
+	#	----------------------------------------------
+	observeEvent(input$min_freq,{
+		source("methods.R")
+		v$min_freq=input$min_freq
+	})
+
+	#	----------------------------------------------
+	#	genelist
+	#	----------------------------------------------
+	observeEvent(input$genelist,{
+		source("methods.R")
+		v$genelist=input$genelist
+	})
 
 	#	----------------------------------------------
 	#	Go Button
 	#	----------------------------------------------
 	observeEvent(input$goButton,{
 		source("methods.R")
-		cmp_papers(input$file1$datapath,input$file2$datapath,output)
+		cmp_papers(input$file1$datapath,input$file2$datapath,output,input$min_freq,v$genelist)
 	})
 }

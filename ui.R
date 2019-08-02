@@ -52,7 +52,9 @@ tags$head(
 		tabPanel("paper2Comp - comparing papers based on word frequencies",
 			fileInput("file1", "Paper 1", multiple = TRUE, accept = c("text/text", ".pdf")),
 			fileInput("file2", "Paper 2", multiple = TRUE, accept = c("text/text", ".pdf")),
-			actionButton("goButton", "Analyse dataset!")))),
+			numericInput("min_freq", "minimum frequency per term", 1, min = 1, max = 100, step = 1,  width = NULL),
+			fileInput("genelist", "gene lists", multiple = TRUE, accept = c("text/text", ".pdf")),
+  			actionButton("goButton", "Analyse dataset!")))),
 		mainPanel(
 			useShinyjs(),
 			plotOutput(outputId = "plot")
