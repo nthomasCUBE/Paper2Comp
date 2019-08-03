@@ -7,4 +7,4 @@ In addition, it is possible to only consider gene names, to
 find out which whether genes are found in the two studies by
 considering e.g. human genes.
 
-![alt text](https://github.com/nthomasCUBE/Paper2Comp/blob/master/Figure1v2.png)
+![alt text](https://github.com/nthomasCUBE/Paper2Comp/blob/master/Figure1v3.png)
